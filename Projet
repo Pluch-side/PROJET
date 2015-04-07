@@ -1,0 +1,97 @@
+boolean jouer=true;
+
+boolean stop=false;
+
+int plateau [][] = new int [10][10];
+int [] couleur;
+ 
+
+ 
+
+void setup() {
+
+  size(500, 500);
+
+  background(250);
+
+  noStroke();
+
+  /*red=(250,0,0);
+   green(0,0,250);
+   couleur = new int [2];
+   for(i=0;i<couleur.length;i++){
+   couleur [i]= random(red,green);
+   }*/
+}
+
+ 
+
+void draw() {
+
+  plateau();
+}
+
+ 
+
+void plateau() {
+
+   
+
+    if (jouer==true) {
+
+    nettoyer();
+
+    for (int x = 0; x < 10; x++ ) {
+
+      for (int y=0; y < 10; y++) {
+
+        plateau [x] [y]=int(random(2));
+    /*    if (plateau[x][y]==0) {
+            fill(250, 0, 0);
+            rect(x*50, y*50, 50, 50);
+      } else
+            fill(0, 250, 0);
+            rect(x*50, y*50, 50, 50);
+          }
+        }*/
+        println(plateau [x][y]);
+        fill(random(255), random(255), random(255));
+
+        int x_depl=mouseX;
+
+        int y_depl=mouseY;
+
+        ellipse(x_depl, y_depl, 50, 50);
+      }
+    }}}
+ 
+
+void nettoyer() {
+
+  background(250);
+}
+
+ 
+
+void menuRestart(int xChoix, int yChoix, int aChoix, int bChoix, int cR, int cV, int cB)
+
+{
+
+  if (stop==true)
+
+  {
+
+    fill(cR, cV, cB);
+
+    rect(xChoix, yChoix, aChoix, bChoix);
+
+    if (mouseX >= 50 && mouseX <= 130 && mouseY >= 340 && mouseY <= 380)
+
+    {
+
+      stop= false;
+
+      jouer=true;
+    }
+  }
+} 
